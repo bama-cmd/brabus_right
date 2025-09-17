@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PiVend Experience Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="app__controls">
+        <header class="controls__header">
+          <h1>PiVend UX Simulator</h1>
+          <p>
+            Explore the touch interface designed for a 27&Prime; portrait vending
+            machine display. Use the controls below to jump between screens or
+            run a guided demo of the core customer journey.
+          </p>
+        </header>
+        <section class="controls__section">
+          <h2>Screen navigator</h2>
+          <div class="controls__grid" id="screen-buttons"></div>
+        </section>
+        <section class="controls__section">
+          <h2>Flow controls</h2>
+          <div class="controls__flow">
+            <button type="button" id="prevScreen" class="control-button">
+              ◀ Previous
+            </button>
+            <button type="button" id="nextScreen" class="control-button">
+              Next ▶
+            </button>
+          </div>
+          <div class="controls__flow">
+            <button type="button" id="runDemo" class="control-button control-button--accent">
+              ▶ Run guided flow
+            </button>
+            <button type="button" id="stopDemo" class="control-button">
+              ⏸ Stop demo
+            </button>
+          </div>
+          <button type="button" id="resetFlow" class="control-button control-button--ghost">
+            ↺ Reset experience
+          </button>
+          <p id="flowStatus" class="controls__status">Ready to explore.</p>
+        </section>
+        <section class="controls__section">
+          <h2>About the layout</h2>
+          <ul class="controls__list">
+            <li>Aspect ratio matches a 27&Prime; portrait (16:9) commercial display.</li>
+            <li>10 mm bezel margin keeps important interactions inside the safe area.</li>
+            <li>Typography and touch targets follow kiosk accessibility best practices.</li>
+          </ul>
+        </section>
+      </aside>
+      <main class="app__viewport">
+        <div class="device-frame">
+          <div class="device-notch"></div>
+          <div class="device">
+            <div class="device__screen">
+              <header class="status-bar">
+                <div class="status-bar__left">
+                  <span id="status-time" class="status-bar__time">08:45</span>
+                  <span id="status-day" class="status-bar__day">Tue 24 Oct</span>
+                </div>
+                <div class="status-bar__center">
+                  <span id="status-environment" class="status-bar__env">
+                    4.2°C • 43% RH
+                  </span>
+                  <span id="status-door" class="status-bar__env">Door closed</span>
+                </div>
+                <div class="status-bar__right">
+                  <span id="status-network" class="status-bar__signal">LTE</span>
+                  <span id="cart-indicator" class="status-bar__cart">0 items • $0.00</span>
+                </div>
+              </header>
+              <section class="screen" id="screen-root"></section>
+              <footer class="soft-buttons">
+                <button class="soft-button" data-soft="help">Help</button>
+                <button class="soft-button" data-soft="language">English ▾</button>
+                <button class="soft-button" data-soft="accessibility">Accessibility</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
